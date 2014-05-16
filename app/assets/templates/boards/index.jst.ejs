@@ -1,0 +1,11 @@
+<h1>Boards</h1>
+
+<ul>
+  <% boards.each(function (board){ %>
+    <li><a href="#/boards/<%= board.get("id") %>">
+      <%= board.get("title") %></li>
+    </a>
+  <% }) %>
+</ul>
+
+<a class="btn btn-primary" id="new-board" href="#/boards/new">Create a new Board</a>
