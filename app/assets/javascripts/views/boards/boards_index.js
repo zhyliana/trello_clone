@@ -5,7 +5,7 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
   
   events: {
     "click button#new-board" : "newBoard",
-    "form submit": "submitNewBoard"
+    "submit": "submitNewBoard"
   },
 
   initialize: function(options){
@@ -31,14 +31,15 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
    
   submitNewBoard: function(event){
     event.preventDefault();
-  
+    alert("submitBoard")
     var params = $(event.currentTarget).serializeJSON()["board"];
     var newBoard = new Trellino.Models.Board(params);
-  
+    debugger
     newBoard.save({}, {
       success: function(){
+        alert("success")
         Trellino.Collections.boards.add(newBoard);
-        Backbone.history.navigate("/boards/" + newBoard.id, {trigger: true});
+        Backbone.history.navigate("#/boards/"+ newBoard.id, {trigger: true});
       }
     });
   },

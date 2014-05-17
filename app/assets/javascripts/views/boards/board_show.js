@@ -1,6 +1,12 @@
 Trellino.Views.ShowBoard = Backbone.View.extend({
   template: JST["boards/show"],
+  listTemplate: JST["lists/new"],
   className: "board",
+  
+  events: {
+    "click button#new-list" : "newList",
+    "form submit" : "submitNewList"
+  },
   
   initialize: function(option){
     this.listenTo(this.model, "sync", this.render);
@@ -23,4 +29,28 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
     
     return this;
   },
+  
+  
+  newList: function(){
+    $(".new-list").append(this.listTemplate({
+      board: this.model
+    }));
+  },
+  
+  submitNewList: function(event){
+       alert("New List");
+    event.preventDefault();
+    
+    var params = $(event.currentTarget).serializeJSON()["list"];
+    var newList = new Trellino.Models.List(params);
+
+    newList.save({}, {
+      success: function(){
+        this.model.lists().add(newList);
+        Backbone.history.navigate("", {trigger: true});
+      }
+    });
+  },
+  
+  
 })
