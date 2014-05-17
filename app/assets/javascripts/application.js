@@ -71,3 +71,7 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+$('#sign-up-modal').modal("show");
+
+$('#sign-in-modal').modal("show")

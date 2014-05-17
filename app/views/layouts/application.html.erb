@@ -7,39 +7,67 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-      
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Trellino</a>
+        <a class="navbar-brand" href="/home">Trellino</a>
       </div>
-      
-      <ul class="nav navbar-left">
-        <li class="active">
-          <a href="#"><span class="glyphicon glyphicon-th"></span> Boards</a>
-        </li>
-      </ul>
-      
-      <ul class="nav navbar-right">
-        <li>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <%= current_user.email %>
-                <span class="caret"></span>
-              </button>
-              <li class="divider"></li>
+            <li class="dropdown">
+              <a href="#" 
+                 class="dropdown-toggle" 
+                 data-toggle="dropdown">
+                 <span class="glyphicon glyphicon-user"></span> 
+                 <b class="caret"></b>
+              </a>
               <ul class="dropdown-menu">
+                <li class="divider"></li>
                 <li><%=link_to "Sign Out", session_url, :method => :delete %></li>
               </ul>
-            </div>
-          </div>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </nav>
+            </li>
+            <% else %>
+              <li>
+                <button class="btn btn-default navbar-btn"
+                        data-toggle="modal"
+                        data-target=".bs-example-modal-sm"
+                        style="border-radius: 5px 0px 0px 5px">
+                        Sign In
+                </button>
+              </li>
 
+              <div class="modal fade bs-example-modal-sm"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="mySmallModalLabel"
+                  aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= render "sessions/form", :user => @user %>
+                     </div>
+                   </div>
+                </div>
+              </div>
+
+              <li>
+                <%= button_to "Sign up", new_user_url, 
+                    :method => :get, 
+                    :class => "btn btn-default navbar-btn", 
+                    :style => "border-radius: 0px 5px 5px 0px;"%>
+              </li>
+            <% end %>
+           </ul>
+         </div><!-- /.navbar-collapse -->
+       </div><!-- /.container-fluid -->
+     </nav>
   <%= yield %>
 
 </body>

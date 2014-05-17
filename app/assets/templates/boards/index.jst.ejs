@@ -15,14 +15,17 @@
 
 
 <% boards.each(function (board){ %>
-  <div class="container col-xs-3">
-    <a class="" 
-       href="#/boards/<%= board.get("id") %>">
-      <%= board.get("title") %>
-    </a>
+  <div class="container col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <a class="" 
+           href="#/boards/<%= board.get("id") %>">
+          <h4><%= board.get("title") %></h4>
+        </a>
+      </div>
+      <div class="panel-body">
+        [placeholder for lists]
+      </div>
+    </div>
   </div>
 <% }) %>
-
-
-
-
