@@ -1,25 +1,26 @@
 <div class="row">
-  <h1 class="col-xs-3">Boards</h1>
+  <h3 class="col-xs-4"><span class="glyphicon glyphicon-user"></span> My Boards</h3>
   
   <div class="new-board col-xs-6">
   </div>
   
-  <div class="col-xs-3">
-    <button class="btn btn-primary  pull-right" 
+  <div class="col-xs-1">
+    <button class="btn btn-primary" 
             id="new-board"> 
     <span class="glyphicon glyphicon-plus"></span>
     </button> 
   </div>
-
 </div>
 
 
 
 <% boards.each(function (board){ %>
-  <a class="col-xs-4 btn btn-default" 
-     href="#/boards/<%= board.get("id") %>">
-    <%= board.get("title") %>
-  </a>
+  <div class="container col-xs-3">
+    <a class="" 
+       href="#/boards/<%= board.get("id") %>">
+      <%= board.get("title") %>
+    </a>
+  </div>
 <% }) %>
 
 

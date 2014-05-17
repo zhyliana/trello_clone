@@ -5,7 +5,7 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
   
   events: {
     "click button#new-list" : "newList",
-    "form submit" : "submitNewList"
+    "submit" : "submitNewList"
   },
   
   initialize: function(option){
@@ -38,12 +38,11 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
   },
   
   submitNewList: function(event){
-       alert("New List");
     event.preventDefault();
     
-    var params = $(event.currentTarget).serializeJSON()["list"];
+    var params = $("form").serializeJSON()["list"];
     var newList = new Trellino.Models.List(params);
-
+    debugger
     newList.save({}, {
       success: function(){
         this.model.lists().add(newList);
