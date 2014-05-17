@@ -1,10 +1,13 @@
 <form class="form-inline">
+    <input type="hidden"
+           name="list[board_id]"
+           value="<%= board.id %>">
 
     <input type="text" 
-           name="board[title]" 
-           id="board_title" 
+           name="list[title]" 
+           id="list_title" 
            class="form-control"
-           placeholder="Board title">
+           placeholder="List title">
     
   <input class="btn-success" 
          type="submit" 
@@ -12,5 +15,3 @@
          value="+"
          ></input>
 </form>
-
-

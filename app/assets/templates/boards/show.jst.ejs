@@ -1,1 +1,17 @@
-<h1><%= board.get("title") %></h1>
+<div class="row">
+  <h1 class="col-xs-3"><%= board.get("title") %></h1>
+  
+  <div class="new-board col-xs-6">
+  </div>
+  
+  <div class="col-xs-3">
+    <button class="btn btn-primary pull-right" 
+            id="new-list"> 
+    <span class="glyphicon glyphicon-plus"></span>
+    </button> 
+  </div>
+
+</div>
+
+
+<div id="lists" class="row"></div>
