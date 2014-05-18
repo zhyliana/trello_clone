@@ -26,7 +26,7 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
       });
       
       this.$("#lists").append(listShow.render().$el);
-    })
+    });
     
     return this;
   },

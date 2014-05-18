@@ -24,6 +24,8 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
+    
+    // this.attachSubviews();
 
     var view = this;
     Trellino.Collections.boards.each(function(board){

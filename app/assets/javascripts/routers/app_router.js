@@ -24,7 +24,7 @@ Trellino.Routers.AppRouter = Backbone.Router.extend({
 
     var showView = new Trellino.Views.ShowBoard({
       model: board,
-      lists: lists,
+      lists: board.lists(),
     })
     
     this._swapView(showView);
