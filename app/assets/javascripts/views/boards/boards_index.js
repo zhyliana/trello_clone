@@ -6,7 +6,8 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
   
   events: {
     "click button#new-board" : "newBoard",
-    "submit": "submitNewBoard"
+    "submit": "submitNewBoard",
+    "click button#destroy" : "destroy"
   },
 
   initialize: function(options){
@@ -36,6 +37,12 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     return this;
   },
   
+  destroy: function(){
+    alert("destroooy!");
+    debugger
+    // this.model.destroy;
+  },
+  
   newBoard: function(){
     $(".new-board").html(this.newboardTemplate());
   },
@@ -43,7 +50,7 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
   submitNewBoard: function(event){
     event.preventDefault();
 
-    var params = $("form").serializeJSON()["board"];
+    var params = $("form").serializeJSON().board;
     var newBoard = new Trellino.Models.Board(params);
     newBoard.save({}, {
       success: function(){
