@@ -14,3 +14,38 @@
  */
 
 @import "bootstrap";
+
+body {
+  background: #019fde;
+}
+
+label, h1, h3, li, a, .btn-primary, .navbar, .navbar-brand, .navbar-btn  {
+  color: #FFFFFF;
+}
+
+.btn {
+ border: none;
+}
+
+.form-field, .modal-title {
+  color: #777777;
+}
+
+.navbar, .navbar-brand, .navbar-btn, .btn-primary   {
+  background: #255078;
+}
+
+#sign-in-button, #sign-up-button {
+  background: #6C8EAA;
+  margin-top: 15px ;
+}
+
+#sign-in-button {
+  border-radius: 5px 0px 0px 5px;
+}
+
+#sign-up-button {
+  border-radius: 0px 5px 5px 0px;
+}
+
+

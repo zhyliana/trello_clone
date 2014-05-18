@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar " role="navigation">
     <div class="container-fluid">
       <div class="collapse navbar-collapse">
         <a class="navbar-brand navbar-btn" href="/home">Trellino</a>
@@ -32,10 +32,10 @@
             </li>
             <% else %>
               <li>
-                <button class="btn btn-default navbar-btn"
+                <button class="btn navbar-btn"
+                        id="sign-in-button"
                         data-toggle="modal"
-                        data-target=".bs-example-modal-sm"
-                        style="border-radius: 5px 0px 0px 5px">
+                        data-target=".bs-example-modal-sm">
                         Sign In
                 </button>
               </li>
@@ -60,10 +60,10 @@
               </div>
 
               <li>
-                <%= button_to "Sign up", new_user_url, 
+                <%= button_to "Sign Up", new_user_url, 
                     :method => :get, 
-                    :class => "btn btn-default navbar-btn", 
-                    :style => "border-radius: 0px 5px 5px 0px;"%>
+                    :class => "btn navbar-btn", 
+                    :id => "sign-up-button"%>
               </li>
             <% end %>
            </ul>

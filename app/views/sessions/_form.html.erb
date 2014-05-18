@@ -3,14 +3,14 @@
 
   <form action="<%= session_url %>" method="post">
     <%= auth_token_input %>
-    <label>
+    <label class="form-field">
       Email<br>
-      <input type="text" name="user[email]">
+      <input class="form-field" type="text" name="user[email]">
     </label>
     <br>
-    <label>
+    <label class="form-field">
       Password<br>
-      <input type="password" name="user[password]">
+      <input class="form-field" type="password" name="user[password]">
     </label>
     <br>
     <input type="submit" class="btn btn-primary" value="Login">

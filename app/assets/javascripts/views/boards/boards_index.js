@@ -21,9 +21,9 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     var renderedContent = this.template({
       boards: this.collection
     });
-    this.$el.html(renderedContent);
     
-    ////////
+    this.$el.html(renderedContent);
+
     var view = this;
     Trellino.Collections.boards.each(function(board){
       var boardsShow = view.boardTemplate({
