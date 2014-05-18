@@ -37,10 +37,12 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     return this;
   },
   
-  destroy: function(){
-    alert("destroooy!");
-    debugger
-    // this.model.destroy;
+  destroy: function(event){
+    event.preventDefault();
+    
+    var id = $(event.target).attr("data-id")
+    alert(id);
+    this.lists.getOrFetch(id).destroy()
   },
   
   newBoard: function(){
