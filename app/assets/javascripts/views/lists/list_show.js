@@ -8,9 +8,16 @@ Trellino.Views.ListShow = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent)
+
+    this.model.cards().each(function(card){
+      var cardShow = new Trellino.Views.CardShow({
+        model: card
+      });
+      
+      this.$("#cards").prepend(cardShow.render().$el);
+    })
     
     return this;
   },
 })
-
 
