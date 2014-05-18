@@ -36,6 +36,6 @@ Trellino.Routers.AppRouter = Backbone.Router.extend({
     }
     this.currentView = view;
     $('#content').html(view.render().$el);
-  }
-  
+  }  
 });
+

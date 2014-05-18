@@ -2,10 +2,11 @@ Trellino.Collections.BoardLists = Backbone.Collection.extend({
   model: Trellino.Models.List,
   
   url: function(){
-    return this.board.url() + "/" + this.board_id + "/lists";
+    return this.board.url() + "/lists";
   },
   
-  initialize: function (models, options) { 
+  initialize: function(models, options) { 
+    debugger
     this.board = options.board;
   }
 });

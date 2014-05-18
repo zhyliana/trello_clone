@@ -17,6 +17,7 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
     var renderedContent = this.template({
       board: this.model
     });
+    
     this.$el.html(renderedContent);
     
     this.model.lists().each(function(list){
