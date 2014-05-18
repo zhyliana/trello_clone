@@ -1,17 +1,30 @@
 <div class="row">
-  <h1 class="col-xs-3"><%= board.get("title") %></h1>
-  
-  <div class="new-list col-xs-6">
-  </div>
-  
-  <div class="col-xs-3">
-    <button class="btn btn-primary pull-right" 
-            id="new-list"> 
-    <span class="glyphicon glyphicon-plus"></span>
-    </button> 
-  </div>
+  <h1 class="col-xs-6"><%= board.get("title") %></h1>
+</div>
 
+<div class="row">
+  <div id="lists">
+  </div>  
+  <div class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading new-list"> 
+        <div class="btn-group pull-right">
+          <button class="btn btn-xs" 
+                  id="new-list"> 
+          <span class="glyphicon glyphicon-plus"></span>
+        </div>  
+        <div class="clearfix"></div>
+      </div>
+      <div class="panel-body">
+        <p>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-<div id="lists" class="row"></div>
+
+
+
+
+

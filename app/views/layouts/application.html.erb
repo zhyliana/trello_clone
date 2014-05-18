@@ -9,16 +9,18 @@
 <body>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/home">Trellino</a>
-      </div>
-
       <div class="collapse navbar-collapse">
+        <a class="navbar-brand navbar-btn" href="/home">Trellino</a>
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <a class="navbar-btn" href="#"><span class="glyphicon glyphicon-th-large"></span> My Boards</a>
+          </li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li class="dropdown">
               <a href="#" 
-                 class="dropdown-toggle" 
+                 class="navbar-btn dropdown-toggle" 
                  data-toggle="dropdown">
                  <span class="glyphicon glyphicon-user"></span> 
                  <b class="caret"></b>

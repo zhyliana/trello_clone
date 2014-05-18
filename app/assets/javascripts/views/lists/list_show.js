@@ -1,6 +1,6 @@
 Trellino.Views.ListShow = Backbone.View.extend({
   template: JST["lists/show"],
-  className: "col-xs-4 btn btn-default",
+  className: "col-xs-4",
   
   render: function(){
     var renderedContent = this.template({
@@ -12,3 +12,5 @@ Trellino.Views.ListShow = Backbone.View.extend({
     return this;
   },
 })
+
+

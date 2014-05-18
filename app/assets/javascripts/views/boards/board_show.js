@@ -31,8 +31,8 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
   },
   
   
-  newList: function(){
-    $(".new-list").append(this.listTemplate({
+  newList: function(){ 
+    $(".new-list").html(this.listTemplate({
       board: this.model
     }));
   },
@@ -40,16 +40,19 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
   submitNewList: function(event){
     event.preventDefault();
     
-    var params = $("form").serializeJSON()["list"];
-    var newList = new Trellino.Models.List(params);
-    debugger
+    var params = $("form").serializeJSON().list;
+    var lastRank = this.model.lists().length;
+    var newList = new Trellino.Models.List(params);  
+    newList.set({"rank": lastRank + 1});
+    var board = this.model;
     newList.save({}, {
       success: function(){
-        this.model.lists().add(newList);
-        Backbone.history.navigate("", {trigger: true});
+        var lists = board.lists();
+        lists.add(newList);
       }
     });
+    
+    this.render();
   },
-  
-  
+   
 })

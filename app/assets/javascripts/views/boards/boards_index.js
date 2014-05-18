@@ -1,7 +1,8 @@
 Trellino.Views.BoardsIndex = Backbone.View.extend({
   template: JST["boards/index"],
-  boardTemplate: JST["boards/new"],
-  className: "row",
+  newboardTemplate: JST["boards/new"],
+  boardTemplate: JST["boards/form"],
+  className: "index",
   
   events: {
     "click button#new-board" : "newBoard",
@@ -22,11 +23,21 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     });
     this.$el.html(renderedContent);
     
+    ////////
+    var view = this;
+    Trellino.Collections.boards.each(function(board){
+      var boardsShow = view.boardTemplate({
+        board: board
+      });
+      
+      $("#boards").append(boardsShow);
+    })
+    
     return this;
   },
   
   newBoard: function(){
-    $(".new-board").append(this.boardTemplate());
+    $(".new-board").html(this.newboardTemplate());
   },
    
   submitNewBoard: function(event){
@@ -34,7 +45,6 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
 
     var params = $("form").serializeJSON()["board"];
     var newBoard = new Trellino.Models.Board(params);
-    debugger
     newBoard.save({}, {
       success: function(){
         Trellino.Collections.boards.add(newBoard);

@@ -15,7 +15,7 @@ Trellino.Models.List = Backbone.Model.extend({
   
   parse: function (jsonResp) {
     if (jsonResp.cards) {
-      this.lists().set(jsonResp.cards);
+      this.cards().set(jsonResp.cards);
       delete jsonResp.lists;
     }
 
