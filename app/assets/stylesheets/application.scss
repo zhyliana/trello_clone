@@ -12,27 +12,41 @@
  *= require_self
  *= require_tree .
  */
-
+@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
+@import url(http://fonts.googleapis.com/css?family=Signika:400,600);
 @import "bootstrap";
 
+* {
+  font-family: 'Signika', sans-serif;
+}
+
 body {
-  background: #019fde;
+  background: #2B5E8B;
 }
 
 label, h1, h3, li, a, .btn-primary, .navbar, .navbar-brand, .navbar-btn  {
   color: #FFFFFF;
 }
 
+.navbar, .navbar-brand, .navbar-btn, .btn-primary {
+  background: #255075;
+}
+
+.navbar-brand{
+  font-family: 'Kaushan Script', cursive;
+  font-size: 26px;
+}
+
 .btn {
  border: none;
 }
 
-.form-field, .modal-title {
-  color: #777777;
+#new-board, #new-list, #add{
+  background: none;
 }
 
-.navbar, .navbar-brand, .navbar-btn, .btn-primary   {
-  background: #255078;
+.form-field, .modal-title, .panel-heading > *,  {
+  color: #777777;
 }
 
 #sign-in-button, #sign-up-button {
