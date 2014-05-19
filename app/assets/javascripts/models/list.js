@@ -1,9 +1,12 @@
-Trellino.Models.List = Backbone.CompositeView.extend({
-  urlRoot: "api/lists",
-  
-  //   urlRoot: function(){
-  //   return "api/boards/" + this.board_id + "/lists";
+Trellino.Models.List = Backbone.Model.extend({
+  // urlRoot: "api/lists",
+  // initialize: function(options){
+  //   this.board = options.board;
   // },
+  
+  urlRoot: function(){
+    return "/api/boards/" + this.get("board_id") + "/lists";
+  },
   
   cards: function () {
     if (!this._cards) {
@@ -17,7 +20,8 @@ Trellino.Models.List = Backbone.CompositeView.extend({
   
   parse: function (jsonResp) {
     if (jsonResp.cards) {
-      this.cards().set(jsonResp.cards);
+
+      this.cards().set(jsonResp.cards, { parse: true });
       delete jsonResp.lists;
     }
 

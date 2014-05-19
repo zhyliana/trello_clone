@@ -5,7 +5,6 @@ window.Trellino = {
   Routers: {},
   initialize: function () {
     new Trellino.Routers.AppRouter();
-    //tells backbone to start listening for any changes in location
     Backbone.history.start();
   }
 };

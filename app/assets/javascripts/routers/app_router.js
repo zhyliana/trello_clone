@@ -18,9 +18,9 @@ Trellino.Routers.AppRouter = Backbone.Router.extend({
     var board = Trellino.Collections.boards.getOrFetch(id);
     board.fetch();
     
-    board.lists().each(function(list){
-      list.fetch();
-    });
+    // board.lists().each(function(list){
+    //   list.fetch();
+    // });
 
     var showView = new Trellino.Views.ShowBoard({
       model: board,
