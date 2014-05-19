@@ -1,4 +1,3 @@
-<div class="col-xs-4" data-board-id=<%=board.id%>>
   <div class="panel board">
     <div class="panel-heading">
       <a class="" 
@@ -8,15 +7,12 @@
     </div>
     <div class="panel-body">
       <div id="members">
-        <div class="btn-group pull-right">
-            <button class="btn btn-xs glyphicon glyphicon-plus"  
-                    id="new-member"> 
-          </div>    
-          <div class="clearfix"></div>
+          <%= board.members %>
+          <button class="btn btn-xs glyphicon glyphicon-plus pull-right" 
+                 id="new-member"></button>
       </div>
     </div>
   </div>
-</div> 
 
 
 

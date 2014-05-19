@@ -1,41 +1,43 @@
-Trellino.Views.BoardsIndex = Backbone.View.extend({
+Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
   template: JST["boards/index"],
   newBoardTemplate: JST["boards/new"],
-  boardTemplate: JST["boards/form"],
-  newMemeberTemplate: JST["boards/new_member"],
   className: "index",
   
   events: {
     "click button#new-board" : "newBoard",
-    "submit #new-board-form": "submitNewBoard",
-    "click button#new-member" : "newMember",
-    "submit #new-member-form" : "submitNewMember",
+    // "click #new-member-submit" : "submitNewBoard",
+    "submit form#new-board-form": "submitNewBoard",
   },
 
   initialize: function(options){
     this.listenTo(
       this.collection, 
-      "sync add", 
+      "sync", 
       this.render
     );
+    this.listenTo(
+      this.collection,
+      "add",
+      this.addBoardCompView
+    );
+    
+   this.collection.each(function(board){
+     this.addBoardCompView(board);
+     // this.addBoardCompView.bind(this)(board);
+   });    
+  },
+  
+  addBoardCompView: function(board){
+    var boardCompView = new Trellino.Views.BoardCompView({ model: board });
+    this.addSubview("#boards", boardCompView)
   },
   
   render: function(){
     var renderedContent = this.template({
       boards: this.collection
-    });
-    
-    this.$el.html(renderedContent);
-
-    var view = this;
-    Trellino.Collections.boards.each(function(board){
-      var boardsShow = view.boardTemplate({
-        board: board
-      });
-      
-      $("#boards").append(boardsShow);
-    })
-    
+    });  
+    this.$el.html(renderedContent);   
+    this.attachSubviews();   
     return this;
   },
   
@@ -56,20 +58,4 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     });
   },
   
-  newMember: function(event){
-    $("#members").html(this.newMemeberTemplate())
-  },
-  
-  submitNewMember: function(event){
-    event.preventDefault();
-    var boardID = $(event.currentTarget).parent().parent().parent().parent().data('board-id');
-    var params = $("form").serializeJSON().board;
-    var board = Trellino.Collections.boards.get(parseInt(boardID));
-    board.save(params, {
-      success: function(){
-        Trellino.Model.Board.members.add(newMember);
-        Backbone.history.navigate("", {trigger: true});
-      }
-    })
-  }
 });

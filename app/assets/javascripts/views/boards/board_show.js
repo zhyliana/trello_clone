@@ -11,7 +11,7 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
   
   initialize: function(option){
     this.listenTo(this.model, "sync add remove", this.render);
-    this.listenTo(this.model.lists(), "sync add remove", this.render);
+    this.listenTo(this.model.lists(), "sync add remove", this.addList);    
     
     this.model.lists().each(this.addList.bind(this));
   },

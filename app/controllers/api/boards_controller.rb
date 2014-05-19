@@ -20,7 +20,7 @@ module Api
     end
 
     def update
-      @board = current_user.boards.find(params[:id])
+      @board = current_user.boards.find_by(id: params[:id])
 
       if params[:newMemberEmail]
         email = params[:newMemberEmail]
