@@ -25,7 +25,7 @@ body {
   background: rgb(40, 105, 135);
 }
 
-label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card  {
+label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card {
   color: #FFFFFF;
 }
 
@@ -46,8 +46,7 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card  {
 }
 
 
-
-#new-board, #new-list, #add, #destroy{
+#new-board, #new-list, #add, #destroy, #new-member{
   background: none;
 }
 

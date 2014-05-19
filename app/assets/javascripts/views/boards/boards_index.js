@@ -1,12 +1,15 @@
 Trellino.Views.BoardsIndex = Backbone.View.extend({
   template: JST["boards/index"],
-  newboardTemplate: JST["boards/new"],
+  newBoardTemplate: JST["boards/new"],
   boardTemplate: JST["boards/form"],
+  newMemeberTemplate: JST["boards/new_member"],
   className: "index",
   
   events: {
     "click button#new-board" : "newBoard",
-    "submit": "submitNewBoard",
+    "submit #new-board-form": "submitNewBoard",
+    "click button#new-member" : "newMember",
+    "submit #new-member-form" : "submitNewMember",
   },
 
   initialize: function(options){
@@ -37,7 +40,7 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
   },
   
   newBoard: function(){
-    $(".new-board").html(this.newboardTemplate());
+    $(".new-board").html(this.newBoardTemplate());
   },
    
   submitNewBoard: function(event){
@@ -52,4 +55,21 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
       }
     });
   },
+  
+  newMember: function(event){
+    $("#members").html(this.newMemeberTemplate())
+  },
+  
+  submitNewMember: function(event){
+    event.preventDefault();
+    var boardID = $(event.currentTarget).parent().parent().parent().parent().data('board-id');
+    var params = $("form").serializeJSON().board;
+    var board = Trellino.Collections.boards.get(parseInt(boardID));
+    board.save(params, {
+      success: function(){
+        Trellino.Model.Board.members.add(newMember);
+        Backbone.history.navigate("", {trigger: true});
+      }
+    })
+  }
 });
