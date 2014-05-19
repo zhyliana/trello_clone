@@ -22,7 +22,7 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
       this.addBoardCompView
     );
     
-    var view = this;
+   var view = this;
    this.collection.each(function(board){
      view.addBoardCompView(board);
      // this.addBoardCompView.bind(this)(board);

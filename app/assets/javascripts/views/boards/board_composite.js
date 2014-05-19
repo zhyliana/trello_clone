@@ -17,7 +17,6 @@ Trellino.Views.BoardCompView = Backbone.CompositeView.extend({
   },
   
   newMember: function(event){
-    // use $(event.currentTarget).parent()
     $(event.currentTarget).parent().html(this.newMemeberTemplate())
   },
   
