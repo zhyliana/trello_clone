@@ -56,9 +56,12 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card  {
   color: #393939;
 }
 
+.form-control, #sign-in-button, #sign-up-button {
+  border-radius: 15px;
+}
+
 #sign-in-button, #sign-up-button {
   background: #6C8EAA;
-  margin-top: 15px ;
 }
 
 #sign-in-button {
