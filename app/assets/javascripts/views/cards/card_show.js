@@ -10,4 +10,5 @@ Trellino.Views.CardShow = Backbone.View.extend({
     
     return this;
   },
+
 })

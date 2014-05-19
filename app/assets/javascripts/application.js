@@ -27,4 +27,15 @@
 
 $('#sign-up-modal').modal("show");
 
-$('#sign-in-modal').modal("show")
+$('#sign-in-modal').modal("show");
+
+$(".board").draggable({
+  drag: function(){
+    alert($(this).position());
+  },
+  drop: function(){
+    alert("landed at: " + $(this).position());
+  }
+});
+
+

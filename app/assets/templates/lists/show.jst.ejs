@@ -1,21 +1,17 @@
-<div class="panel list">
-  <div class="panel-heading">
-    <h4><%= list.get("title") %></h4>
-  </div>
-  <div class="panel-body">
-    <div id="cards">    
+<div class="panel" id="list">
+  <h4 class="panel-heading"><%= list.get("title") %></h4>
+  <div class="panel-body">  
+      
+    <div class="cards">
     </div>
     
-    <div class="panel card" id="card">
-      <div class="panel-heading">
-        <div class="btn-group pull-right">
-          <button class="btn btn-xs glyphicon glyphicon-plus"  
-                  id="new-card"> 
-        </div>    
-        <div class="clearfix"></div>
-      </div>
-    </div>
-    
+    <div class="panel card" id="new-card">
+      <div class="panel-heading btn-group pull-right">
+        <button class="btn btn-xs glyphicon glyphicon-plus"  
+                id="new-card-btn"> 
+      </div>    
+      <div class="clearfix"></div>
+    </div> 
   </div>
 </div>
 

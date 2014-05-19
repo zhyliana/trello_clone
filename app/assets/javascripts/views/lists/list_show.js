@@ -4,8 +4,9 @@ Trellino.Views.ListShow = Backbone.CompositeView.extend({
   className: "col-xs-4",
   
   events: {
-    "click button#new-card" : "newCard",
+    "click button#new-card-btn" : "newCard",
     "submit form#new-card-form" : "submitNewCard",
+    "click .card": "drag"
   },
   
   initialize: function(){
@@ -21,7 +22,7 @@ Trellino.Views.ListShow = Backbone.CompositeView.extend({
   
   addCard: function(card){
     var cardShowView = new Trellino.Views.CardShow({ model: card });
-    this.addSubview("#cards", cardShowView) 
+    this.addSubview(".cards", cardShowView) 
   },
   
   render: function(){
@@ -35,10 +36,8 @@ Trellino.Views.ListShow = Backbone.CompositeView.extend({
     return this;
   },
   
-  
   newCard: function(){ 
-    debugger
-    $(event.target).parent().parent().parent().html(this.newCardTemplate({
+    $(event.target).parent().parent().html(this.newCardTemplate({
       list: this.model
     }));
   },

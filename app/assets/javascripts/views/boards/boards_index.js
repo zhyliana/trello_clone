@@ -5,7 +5,6 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
   
   events: {
     "click button#new-board" : "newBoard",
-    // "click #new-member-submit" : "submitNewBoard",
     "submit": "submitNewBoard",
   },
 
@@ -25,7 +24,6 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
    var view = this;
    this.collection.each(function(board){
      view.addBoardCompView(board);
-     // this.addBoardCompView.bind(this)(board);
    });    
   },
   

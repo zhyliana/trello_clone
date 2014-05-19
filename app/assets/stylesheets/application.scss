@@ -11,6 +11,7 @@
  *
  *= require_self
  *= require_tree .
+*= require jquery.ui.all
  */
 /*@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 @import url(http://fonts.googleapis.com/css?family=Signika:400,600);*/
@@ -25,7 +26,7 @@ body {
   background: rgb(40, 105, 135);
 }
 
-label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card {
+label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card-btn {
   color: #FFFFFF;
 }
 
@@ -46,7 +47,7 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card {
 }
 
 
-#new-board, #new-list, #add, #destroy, #new-member, #new-member-submit, #submit-new-card {
+#new-board, #new-list, #add, #destroy, #new-member, #new-member-submit, #submit-new-card, #new-card-btn {
   background: none;
 }
 
@@ -88,6 +89,3 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card {
   background-color: #393939;
 }
 
-#new-card {
-  background: none;
-}
