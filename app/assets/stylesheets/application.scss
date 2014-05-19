@@ -17,15 +17,22 @@
 @import "bootstrap";
 
 * {
-  font-family: 'Signika', sans-serif;
+  font: 14px 'Signika', 'Helvetica Neue';
 }
 
 body {
   background: #2B5E8B;
 }
 
-label, h1, h3, li, a, .btn-primary, .navbar, .navbar-brand, .navbar-btn  {
+label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card  {
   color: #FFFFFF;
+}
+
+.header-logo-default {
+  background-image: url('logo.png');
+  height: 27px;
+  top: 0;
+  width: 80px;
 }
 
 .navbar, .navbar-brand, .navbar-btn, .btn-primary {
@@ -45,8 +52,8 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-brand, .navbar-btn  {
   background: none;
 }
 
-.form-field, .modal-title, .panel-heading > *,  {
-  color: #777777;
+.form-field, .modal-title, .board, .list, .panel-heading > *,  {
+  color: #393939;
 }
 
 #sign-in-button, #sign-up-button {
@@ -62,4 +69,12 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-brand, .navbar-btn  {
   border-radius: 0px 5px 5px 0px;
 }
 
+.panel {
+  border-radius: 15px;
+  background-color: #D3D3D3;
+}
 
+.card {
+   background-color: #393939;
+   color: #EEEEEE;
+}

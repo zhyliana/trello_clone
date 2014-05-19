@@ -28,14 +28,6 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.attachSubviews();
     
-    // this.model.lists().each(function(list){
-    //   var listShow = new Trellino.Views.ListShow({
-    //     model: list
-    //   });
-    //   
-    //   this.$("#lists").append(listShow.render().$el);
-    // });
-    
     return this;
   },
   

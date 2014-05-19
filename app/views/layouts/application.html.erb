@@ -10,12 +10,15 @@
   <nav class="navbar" role="navigation">
     <div class="container-fluid">
       <div class="collapse navbar-collapse">
-        <a class="navbar-brand navbar-btn" href="#">Trellino</a>
         <ul class="nav navbar-nav navbar-left">
+          <li><a href="#"><span class="glyphicon header-logo-default"></span></a></li>
+          
           <li>
             <a class="navbar-btn" href="#"><span class="glyphicon glyphicon-th-large"></span> My Boards</a>
           </li>
         </ul>
+        
+        
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li class="dropdown">
