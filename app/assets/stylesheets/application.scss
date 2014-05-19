@@ -18,10 +18,11 @@
 
 * {
   font: 14px 'Signika', 'Helvetica Neue';
+  border: none;
 }
 
 body {
-  background: #2B5E8B;
+  background: rgb(40, 105, 135);
 }
 
 label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card  {
@@ -74,10 +75,18 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card  {
 
 .panel {
   border-radius: 15px;
-  background-color: #D3D3D3;
+  background-color: rgba(210, 210, 210, 0.75);
+}
+
+.panel:hover {
+  background-color: rgba(210, 210, 210, 1)
 }
 
 .card {
    background-color: #393939;
    color: #EEEEEE;
+}
+
+.panel .card:hover {
+  background-color: #393939;
 }

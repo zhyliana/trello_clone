@@ -5,7 +5,8 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
   
   events: {
     "click button#new-list" : "newList",
-    "submit" : "submitNewList"
+    "submit" : "submitNewList",
+    "click button#destroy" : "destroy"
   },
   
   initialize: function(option){
@@ -31,7 +32,6 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
     return this;
   },
   
-  
   newList: function(){ 
     $(".new-list").html(this.listTemplate({
       board: this.model
@@ -49,12 +49,17 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
     newList.save({}, {
       success: function(){ 
         this.addList(newList);
-        // board.lists().each(this.addList.bind(this));
-        // this.addSubview("#lists", listsShow);
       }
     });
     
     this.render();
+  },
+  
+  
+  destroy: function(event){
+    event.preventDefault(); 
+    this.model.destroy();
+    Backbone.history.navigate("", {trigger: true})
   },
    
 })

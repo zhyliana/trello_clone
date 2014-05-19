@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'backbone-on-rails'
+
 gem 'ejs'
 gem 'rails', '4.0.2'
 gem 'annotate'
@@ -17,6 +17,7 @@ group :doc do
 end
 
 group :development do
+  gem 'debugger'
   gem 'better_errors'
   gem 'binding_of_caller'
 end

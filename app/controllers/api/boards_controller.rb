@@ -36,7 +36,7 @@ module Api
     end
 
     def destroy
-      current_user.boards.find(params[:id]).try(:destroy)
+      Board.all.find(params[:id]).try(:destroy)
       render json: {}
     end
 

@@ -7,7 +7,6 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
   events: {
     "click button#new-board" : "newBoard",
     "submit": "submitNewBoard",
-    "click button#destroy" : "destroy"
   },
 
   initialize: function(options){
@@ -24,8 +23,6 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
-    
-    // this.attachSubviews();
 
     var view = this;
     Trellino.Collections.boards.each(function(board){
@@ -37,14 +34,6 @@ Trellino.Views.BoardsIndex = Backbone.View.extend({
     })
     
     return this;
-  },
-  
-  destroy: function(event){
-    event.preventDefault();
-    
-    var id = $(event.target).attr("data-id")
-    alert(id);
-    this.lists.getOrFetch(id).destroy()
   },
   
   newBoard: function(){
