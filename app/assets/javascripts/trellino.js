@@ -23,11 +23,11 @@ Backbone.CompositeView = Backbone.View.extend({
     subview.delegateEvents();
   },
   
-  attachSubviews: function(){
+  attachSubviews: function () {
     var view = this;
-    _(this.subviews()).each(function(subviews, selector){
+    _(this.subviews()).each(function (subviews, selector) {
       view.$(selector).empty();
-      _(subviews).each( function(subview){
+      _(subviews).each(function (subview) {
         view.attachSubview(selector, subview);
       });
     });
@@ -51,7 +51,18 @@ Backbone.CompositeView = Backbone.View.extend({
       this._subviews[selector] = this._subviews[selector] || [];
       return this._subviews[selector];
     }
-  }
+  },
+  
+  subviews: function (selector) {
+      this._subviews = this._subviews || {};
+
+      if (!selector) {
+        return this._subviews;
+      } else {
+        this._subviews[selector] = this._subviews[selector] || [];
+        return this._subviews[selector];
+      }
+    }
 });
 
 $(Trellino.initialize);

@@ -1,4 +1,4 @@
-Trellino.Views.ShowBoard = Backbone.View.extend({
+Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
   template: JST["boards/show"],
   listTemplate: JST["lists/new"],
   className: "board",
@@ -10,7 +10,15 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
   
   initialize: function(option){
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.lists(), "sync add remove", this.render)
+    this.listenTo(this.model.lists(), "sync add remove", this.render);
+    
+    this.model.lists().each(this.addList.bind(this));
+  },
+  
+  addList: function(list){
+    var listsShow =  new Trellino.Views.ListShow({ model: list });
+    
+    this.addSubview("#lists", listsShow)
   },
   
   render: function(){
@@ -19,14 +27,15 @@ Trellino.Views.ShowBoard = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
+    this.attachSubviews();
     
-    this.model.lists().each(function(list){
-      var listShow = new Trellino.Views.ListShow({
-        model: list
-      });
-      
-      this.$("#lists").append(listShow.render().$el);
-    });
+    // this.model.lists().each(function(list){
+    //   var listShow = new Trellino.Views.ListShow({
+    //     model: list
+    //   });
+    //   
+    //   this.$("#lists").append(listShow.render().$el);
+    // });
     
     return this;
   },
