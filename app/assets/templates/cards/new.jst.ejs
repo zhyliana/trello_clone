@@ -1,13 +1,22 @@
 <form class="form-inline">
+  <div class="panel card">
     <input type="hidden"
            name="card[list_id]"
            value="<%= list.id %>">
-
+  <div class="panel-heading">
     <input type="text" 
            name="card[title]" 
            id="list_title" 
            class="form-control"
-           placeholder="List title">
+           placeholder="Card title">
+  </div>
+  <div class="panel-body">       
+    <input type="text" 
+          name="card[description]" 
+          id="list_title" 
+          class="form-control"
+          placeholder="Card description">
+  </div>
            
     <div class="btn-group pull-right">  
       <button class="btn btn-xs" 
@@ -16,4 +25,5 @@
              ><span class="glyphicon glyphicon-plus"></span></button>
       <div class="clearfix"></div>
     </div>
+  </div>
 </form>
