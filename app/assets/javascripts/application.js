@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require serializeJSON
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require underscore

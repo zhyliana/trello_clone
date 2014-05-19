@@ -24,7 +24,7 @@ Trellino.Views.BoardCompView = Backbone.CompositeView.extend({
   submitNewMember: function(event){
     event.preventDefault();
     debugger
-    var params = $("form").serializeJSON().board;
+    var params = $(event.target).serializeJSON().board;
     var board = this.model;
     var view = this;
     board.save(params, {

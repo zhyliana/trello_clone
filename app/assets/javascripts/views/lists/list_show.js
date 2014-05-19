@@ -37,7 +37,8 @@ Trellino.Views.ListShow = Backbone.CompositeView.extend({
   
   
   newCard: function(){ 
-    $("#card").html(this.newCardTemplate({
+    debugger
+    $(event.target).parent().parent().parent().html(this.newCardTemplate({
       list: this.model
     }));
   },
