@@ -6,7 +6,7 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
   events: {
     "click button#new-board" : "newBoard",
     // "click #new-member-submit" : "submitNewBoard",
-    "submit form#new-board-form": "submitNewBoard",
+    "submit": "submitNewBoard",
   },
 
   initialize: function(options){
@@ -15,14 +15,16 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
       "sync", 
       this.render
     );
+    
     this.listenTo(
       this.collection,
       "add",
       this.addBoardCompView
     );
     
+    var view = this;
    this.collection.each(function(board){
-     this.addBoardCompView(board);
+     view.addBoardCompView(board);
      // this.addBoardCompView.bind(this)(board);
    });    
   },
@@ -42,7 +44,7 @@ Trellino.Views.BoardsIndex = Backbone.CompositeView.extend({
   },
   
   newBoard: function(){
-    $(".new-board").html(this.newBoardTemplate());
+    $("#board").html(this.newBoardTemplate());
   },
    
   submitNewBoard: function(event){

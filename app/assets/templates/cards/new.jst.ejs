@@ -1,5 +1,5 @@
 <div class="panel card">
-  <form class="form-inline">
+  <form class="form-inline new-card" id="new-card-form">
       <input type="hidden"
              name="card[list_id]"
              value="<%= list.id %>">
@@ -21,9 +21,9 @@
     </div>
            
       <div class="btn-group pull-right">  
-        <button class="btn btn-xs" 
+        <button class="btn btn-xs add" 
                type="submit" 
-               id="add"
+               id="submit-new-card"
                ><span class="glyphicon glyphicon-plus"></span></button>
         <div class="clearfix"></div>
       </div>

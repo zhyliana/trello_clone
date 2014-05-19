@@ -11,7 +11,13 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
   
   initialize: function(option){
     this.listenTo(this.model, "sync add remove", this.render);
-    this.listenTo(this.model.lists(), "sync add remove", this.addList);    
+    // this.listenTo(this.model.lists(), "sync add remove", this.addList); 
+    
+    this.listenTo(
+      this.model.lists(),
+      "sync add",
+      this.addList
+    );   
     
     this.model.lists().each(this.addList.bind(this));
   },
@@ -45,10 +51,11 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
     var lastRank = this.model.lists().length;
     var newList = new Trellino.Models.List(params);  
     newList.set({"rank": lastRank + 1});
-    var board = this.model;
+ 
+    var view = this;
     newList.save({}, {
       success: function(){ 
-        this.addList(newList);
+        view.addList(newList);
       }
     });
     
