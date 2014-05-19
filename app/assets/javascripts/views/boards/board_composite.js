@@ -24,9 +24,12 @@ Trellino.Views.BoardCompView = Backbone.CompositeView.extend({
     event.preventDefault();
     var params = $("form").serializeJSON().board;
     var board = this.model;
+    var view = this;
     board.save(params, {
       success: function(){
-        Backbone.history.navigate("", {trigger: true});
+        alert("success")
+        view.render();
+        // Backbone.history.navigate("", {trigger: true});
       },
       error: function(){
         alert("User Not Found")
