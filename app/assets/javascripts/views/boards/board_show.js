@@ -27,6 +27,7 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
     
     this.$el.html(renderedContent);
     this.attachSubviews();
+    var board = this;
     this.$(".cards").sortable({
       axis: "y",
       containment: "parent",
@@ -35,17 +36,6 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
       tolerance: "pointer",
       opacity: 0.75,
       revert: true,
-      
-      update: function(event, ui) {
-        var data = $(this).sortable('toArray');
-        data.forEach( function(id){
-          Trellino.Collections.ListCards.
-        })
-        debugger
-      }
-      //       update: function(event, ui){
-      //   var data = $(this).sortable('serialize');
-      // }
     });
     
     this.$(".lists").sortable({

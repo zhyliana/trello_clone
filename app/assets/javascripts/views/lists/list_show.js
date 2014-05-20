@@ -6,7 +6,7 @@ Trellino.Views.ListShow = Backbone.CompositeView.extend({
   events: {
     "click button#new-card-btn" : "newCard",
     "submit form#new-card-form" : "submitNewCard",
-    "click .card": "drag"
+    "sortstop" : "updateCardRanks"
   },
   
   initialize: function(){
@@ -15,7 +15,7 @@ Trellino.Views.ListShow = Backbone.CompositeView.extend({
       this.model.cards(),
       "sync add",
       this.addCard
-    ); 
+    );
    
    this.model.cards().each(this.addCard.bind(this));
   },
@@ -41,6 +41,20 @@ Trellino.Views.ListShow = Backbone.CompositeView.extend({
       list: this.model
     }));
   },
+  
+  updateCardRanks: function(event, ui){
+    var list = this.model;
+    var data = $(event.target).sortable('toArray');
+    data.forEach( function(id){
+      var id = parseInt(id);
+      list.cards().fetch(id)
+      console.log(list.cards())
+      debugger
+      // this.model
+    })
+    console.log(data)
+  },
+  
   
   submitNewCard: function(event){
     event.preventDefault();
