@@ -23,7 +23,7 @@
 }
 
 body {
-  background: rgb(40, 105, 135);
+  background: rgb(35, 113, 159);
 }
 
 label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card-btn {
@@ -37,8 +37,8 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card-btn {
   width: 80px;
 }
 
-.navbar, .navbar-brand, .navbar-btn, .btn-primary {
-  background: #255075;
+.navbar, .navbar-brand, .navbar-btn, .btn-primary, .navbar-nav > li > a {
+  background: rgb(40, 75, 120);
 }
 
 .navbar-brand{
@@ -73,11 +73,11 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card-btn {
 
 .panel {
   border-radius: 15px;
-  background-color: rgba(210, 210, 210, 0.75);
+  background-color: rgba(230, 230, 230, 1);
 }
 
 .panel:hover {
-  background-color: rgba(210, 210, 210, 1)
+  background-color: rgba(246, 246, 246, 1);
 }
 
 .card {
@@ -85,7 +85,7 @@ label, h1, h3, li, a, .btn-primary, .navbar, .navbar-btn, .card, #new-card-btn {
    color: #EEEEEE;
 }
 
-.panel .card:hover {
+.card:hover{
   background-color: #393939;
 }
 

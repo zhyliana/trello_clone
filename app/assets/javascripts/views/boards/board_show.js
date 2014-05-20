@@ -10,32 +10,56 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
   },
   
   initialize: function(option){
-    this.listenTo(this.model, "sync add remove", this.render);
-    // this.listenTo(this.model.lists(), "sync add remove", this.addList); 
-    
-    this.listenTo(
-      this.model.lists(),
-      "sync add",
-      this.addList
-    );   
-    
+    this.listenTo(this.model, "sync add remove", this.render);      
+    this.listenTo(this.model.lists(), "sync add", this.addList);   
     this.model.lists().each(this.addList.bind(this));
   },
   
   addList: function(list){
     var listShowView =  new Trellino.Views.ListShow({ model: list });   
-    this.addSubview(".lists", listShowView)
+    this.addSubview(".lists", listShowView);
   },
   
-  render: function(){
+  render: function() {
     var renderedContent = this.template({
       board: this.model
     });
     
     this.$el.html(renderedContent);
     this.attachSubviews();
-    this.$(".cards").sortable({})
-    this.$(".lists").sortable({})
+    this.$(".cards").sortable({
+      axis: "y",
+      containment: "parent",
+      cursor: "move",
+      cursorAt: { top: 5 },
+      tolerance: "pointer",
+      opacity: 0.75,
+      revert: true,
+      
+      update: function(event, ui) {
+        var data = $(this).sortable('toArray');
+        data.forEach( function(id){
+          Trellino.Collections.ListCards.
+        })
+        debugger
+      }
+      //       update: function(event, ui){
+      //   var data = $(this).sortable('serialize');
+      // }
+    });
+    
+    this.$(".lists").sortable({
+      // containment: "parent",
+      // cursor: "grab",
+      cursor: "move",
+      cursorAt: { top: 5 },
+      tolerance: "pointer",
+      opacity: 0.75,
+      revert: true,
+
+    });
+    
+    
     return this;
   },
   
@@ -52,7 +76,7 @@ Trellino.Views.ShowBoard = Backbone.CompositeView.extend({
     var lastRank = this.model.lists().length;
     var newList = new Trellino.Models.List(params);  
     newList.set({"rank": lastRank + 1});
-    // var board = this.model;
+
     var view = this;
     newList.save({}, {
       success: function(){ 
